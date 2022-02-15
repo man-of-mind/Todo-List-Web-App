@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 250px;
+    width: 250px;
+    background-color: blue;
+    justify-content: center;
+}
