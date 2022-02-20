@@ -86,11 +86,88 @@ main {
     margin: 0 auto;
 }
 
-.task_list h2 {
+
+/*.task_list h2 {
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--gray);
     margin-bottom: 1rem;
+}*/
+
+.task_detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task_detail h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.checkbox_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    margin-left: 1rem;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.checkbox_container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.checkbox_container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.checkbox_container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.checkbox_container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 #tasks .task {
@@ -100,6 +177,10 @@ main {
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+}
+
+#tasks .task .content {
+    flex: 1 1 0%;
 }
 
 #tasks .task .content .text {
