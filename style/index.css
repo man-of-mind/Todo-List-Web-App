@@ -86,14 +86,6 @@ main {
     margin: 0 auto;
 }
 
-
-/*.task_list h2 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--gray);
-    margin-bottom: 1rem;
-}*/
-
 .task_detail {
     display: flex;
     justify-content: space-between;
@@ -132,15 +124,9 @@ main {
     background-color: #ccc;
 }
 
-
-/* When the checkbox is checked, add a blue background */
-
 .checkbox_container input:checked~.checkmark {
     background-color: #2196F3;
 }
-
-
-/* Create the checkmark/indicator (hidden when not checked) */
 
 .checkmark:after {
     content: "";
@@ -148,15 +134,9 @@ main {
     display: none;
 }
 
-
-/* Show the checkmark when checked */
-
 .checkbox_container input:checked~.checkmark:after {
     display: block;
 }
-
-
-/* Style the checkmark/indicator */
 
 .checkbox_container .checkmark:after {
     left: 9px;

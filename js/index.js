@@ -3,19 +3,30 @@ window.addEventListener('load', () => {
     const task_input = document.querySelector('#new_task_input');
     const task_list = document.querySelector('#tasks');
     const task_number = document.getElementsByTagName('h2');
-
-    /*    var check = document.getElementsByClassName('checkbox_container');
-        var ind = document.querySelector("#checkme");
-        ind.name = "task one";
-        console.log(ind.name);
-        console.log(ind.checked);
-    */
     var list = document.getElementsByClassName("task");
-    console.log(list.length);
 
-    task_number[1].addEventListener('click', () => {
-        task_number[1].innerHTML = 'Number of incomplete task(s): ' + list.length;
-    })
+
+    function checkboxListener() {
+        var total_tasks = list.length;
+        for (let i = 0; i < list.length; i++) {
+            const curr = list[i].getElementsByClassName("checkme");
+            const vari = list[i].getElementsByClassName("checkmark");
+            console.log(curr[0].checked);
+            console.log(list.length);
+            if (curr[0].checked === true) {
+                total_tasks--;
+                console.log(total_tasks);
+            }
+        }
+
+        if (total_tasks != undefined) {
+            task_number[1].innerHTML = 'Number of incomplete task(s): ' + total_tasks;
+        } else {
+            task_number[1].innerHTML = 'Number of incomplete task(s): 0';
+        }
+
+    }
+
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -62,27 +73,23 @@ window.addEventListener('load', () => {
         task_input.value = '';
 
 
-        task_number[1].innerHTML = 'Number of incomplete task(s): ' + list.length;
+        checkboxListener();
 
-        checkbox = document.getElementById('conducted');
+        new_task_checkbox_input.addEventListener('click', () => {
 
-        new_task_checkbox_input.addEventListener('change', e => {
-
-            if (e.target.checked) {
-                var num = Number(list.length);
-                num = num - 1;
-                console.log(num);
-                //                task_number[1].innerHTML = 'Number of incomplete task(s): ' + num;
-
+            checkboxListener();
+            if (new_task_checkbox_input.checked) {
                 new_task_input.style.color = 'gray';
                 new_task_input.style.textDecorationLine = 'line-through';
+            } else {
+                new_task_input.style.color = 'white';
+                new_task_input.style.textDecorationLine = 'none';
             }
-
         });
 
         new_task_delete_button.addEventListener('click', () => {
             task_list.removeChild(new_task);
-            //           task_number[1].innerHTML = 'Number of incomplete task(s): ' + list.length;
+            checkboxListener();
         })
     })
 })
