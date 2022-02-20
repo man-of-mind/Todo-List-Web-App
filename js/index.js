@@ -11,11 +11,8 @@ window.addEventListener('load', () => {
         for (let i = 0; i < list.length; i++) {
             const curr = list[i].getElementsByClassName("checkme");
             const vari = list[i].getElementsByClassName("checkmark");
-            console.log(curr[0].checked);
-            console.log(list.length);
             if (curr[0].checked === true) {
                 total_tasks--;
-                console.log(total_tasks);
             }
         }
 
@@ -76,7 +73,6 @@ window.addEventListener('load', () => {
         checkboxListener();
 
         new_task_checkbox_input.addEventListener('click', () => {
-
             checkboxListener();
             if (new_task_checkbox_input.checked) {
                 new_task_input.style.color = 'gray';
